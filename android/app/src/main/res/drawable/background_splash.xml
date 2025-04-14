@@ -9,5 +9,5 @@
                 android:endColor="#c8bfb6"/>
         </shape>
     </item>
-   <item android:width="200dp" android:height="200dp" android:drawable="@mipmap/screen" android:gravity="center" />
+   <item android:width="300dp" android:height="300dp" android:drawable="@mipmap/screen" android:gravity="center" />
 </layer-list>
