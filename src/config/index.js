@@ -1,0 +1,2 @@
+export const API_HOST = `https://catalog-management-system-dev-ak3ogf6zea-uc.a.run.app/cms/filter/product`;
+export const WEBCLIENTID = `586968768134-llbvdr71cernrdo2472tojambgng0enq.apps.googleusercontent.com`

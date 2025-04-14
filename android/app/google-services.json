@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "586968768134",
+    "firebase_url": "https://organicfood-40d1a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "organicfood-40d1a",
+    "storage_bucket": "organicfood-40d1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586968768134:android:00ec20719567b5d4f57b07",
+        "android_client_info": {
+          "package_name": "com.pushnotification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586968768134-llbvdr71cernrdo2472tojambgng0enq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLx1N-PYrv58Wql28C63baOqtBpMMa0Ms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586968768134-c7a0akdr54jsjeqh8loj977vcp6vterc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
