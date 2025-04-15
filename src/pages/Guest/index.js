@@ -1,56 +1,54 @@
-import React from 'react';
-import { View, Button, StyleSheet, Text } from 'react-native';
-import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import React, { useEffect } from 'react';
+import { Text, Image } from 'react-native';
+import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 
 import { WEBCLIENTID } from '../../config';
-// import { navigate } from '../../helpers/navigation';
+import { Button } from '../../components/Field';
+import Container from '../../components/container';
+import { navigate } from '../../helpers/navigation';
+import { Home as HomeImage } from '../../assets/images';
+
+import styles from './styles';
 
 const Login = () => {
 
+    useEffect(() => {
+        GoogleSignin.configure({
+            webClientId: WEBCLIENTID,
+            forceCodeForRefreshToken: true,
+            offlineAccess: true,
+        });
+    }, []);
+
     async function onGoogleButtonPress() {
-        if (Platform.OS === 'android') {
-            await GoogleSignin.configure({
-                forceCodeForRefreshToken: true
-            })
-        } else {
-            await GoogleSignin.configure({
-                webClientId: WEBCLIENTID,
-                forceCodeForRefreshToken: true,
-            })
-        }
         try {
-            await GoogleSignin.hasPlayServices();
+            await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
             const userInfo = await GoogleSignin.signIn();
             if (userInfo) {
-                console.log("userInfo ", userInfo);
-                // dispatch(addPersonalInfo(get(userInfo, 'user')))
-                // dispatch(authName('google'))
-                // navigate("H");
+                console.log("userInfo", userInfo);
+                navigate("DashBoard");
             }
         } catch (error) {
             if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-                console.log("user cancelled the login flow")
+                console.log("User cancelled the login flow");
             } else if (error.code === statusCodes.IN_PROGRESS) {
-                console.log("operation (e.g. sign in) is in progress already")
+                console.log("Operation (e.g. sign in) is in progress already");
             } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-                console.log("play services not available or outdated")
+                console.log("Play services not available or outdated");
             } else {
-                console.log("some other error happened", error)
+                console.log("Some other error happened", error);
             }
         }
     }
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Login Screen</Text>
-            <Button title="Sign in with Google" onPress={onGoogleButtonPress} />
-        </View>
+        <Container header={false} style={styles.container}>
+            <Image source={HomeImage} style={styles.home} />
+            <Text style={styles.title}>Sign in to continue shopping smart!</Text>
+            <Button text="Sign in with Google" onPress={onGoogleButtonPress} />
+        </Container>
     );
 };
 
-const styles = StyleSheet.create({
-    container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-    title: { fontSize: 24, marginBottom: 20 },
-});
 
 export default Login;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, View } from 'react-native';
+import { ScrollView, StatusBar, View } from 'react-native';
 
 import Header from './Header';
 import { colors } from '../../helpers/variables';
@@ -33,9 +33,15 @@ const Container = (props) => {
                     />
                 )
             }
-            <View style={[styles.content, style]}>
-                {children}
-            </View>
+            <ScrollView
+                keyboardShouldPersistTaps="handled"
+                showsVerticalScrollIndicator={false}
+                style={styles.subContainer}
+                contentContainerStyle={styles.scrollContent}>
+                <View style={[styles.content, style]}>
+                    {children}
+                </View>
+            </ScrollView>
         </View>
     )
 }

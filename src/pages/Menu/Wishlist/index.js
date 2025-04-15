@@ -1,27 +1,34 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, Button } from 'react-native';
+import { View, Text, FlatList, Button, Image } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 
+import Container from '../../../components/container';
 import { updateWishlist } from '../../../actions/quantity';
+
+import styles from './styles';
 
 const Wishlist = () => {
     const dispatch = useDispatch();
     const wishlistItems = useSelector(state => state.cart.wishlistItems);
 
-    const renderItem = ({ item }) => (
-        <View style={styles.itemContainer}>
-            <Text style={styles.name}>{item.name}</Text>
-            <Text style={styles.category}>{item.main_category || 'Uncategorized'}</Text>
-            <Text style={styles.price}>₹{item.price}</Text>
-            <Button
-                title="Remove from Wishlist"
-                onPress={() => dispatch(updateWishlist(item))}
-            />
-        </View>
-    );
+    const renderItem = ({ item }) => {
+        const { background, price } = productDetails(item.name);
+        return (
+            <View style={styles.itemContainer}>
+                <Image source={background} style={styles.bg} />
+                <Text style={styles.name}>{item.name}</Text>
+                <Text style={styles.category}>{item.main_category || 'Uncategorized'}</Text>
+                <Text style={styles.price}>₹{price}</Text>
+                <Button
+                    title="Remove from Wishlist"
+                    onPress={() => dispatch(updateWishlist(item))}
+                />
+            </View>
+        )
+    };
 
     return (
-        <View style={styles.container}>
+        <Container>
             {wishlistItems.length === 0 ? (
                 <Text style={styles.emptyText}>Your wishlist is empty.</Text>
             ) : (
@@ -31,42 +38,9 @@ const Wishlist = () => {
                     keyExtractor={item => item.id.toString()}
                 />
             )}
-        </View>
+        </Container>
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 15,
-        backgroundColor: '#fff',
-    },
-    itemContainer: {
-        padding: 15,
-        marginBottom: 10,
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 10,
-    },
-    name: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    category: {
-        fontSize: 14,
-        color: 'gray',
-    },
-    price: {
-        fontSize: 16,
-        marginVertical: 5,
-    },
-    emptyText: {
-        fontSize: 18,
-        textAlign: 'center',
-        marginTop: 50,
-        color: 'gray',
-    },
-});
 
 export default Wishlist;
-

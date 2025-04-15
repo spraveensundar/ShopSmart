@@ -9,9 +9,9 @@ import { navigationRef } from '../helpers/navigation';
 const App = () => {
 	const Stack = createNativeStackNavigator();
 
-	// useEffect(() => {
-	// 	hideSplash();
-	// }, []);
+	useEffect(() => {
+		hideSplash();
+	}, []);
 
 	const hideSplash = async () => {
 		await BootSplash.hide({ fade: true });
@@ -19,7 +19,7 @@ const App = () => {
 
 	return (
 		<NavigationContainer ref={navigationRef}>
-			<Stack.Navigator initialRouteName={"DashBoard"} screenOptions={{ headerShown: false }}>
+			<Stack.Navigator initialRouteName={"Login"} screenOptions={{ headerShown: false }}>
 				{useGuestRoutes()}
 			</Stack.Navigator>
 		</NavigationContainer>

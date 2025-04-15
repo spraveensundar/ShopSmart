@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import Icon from '../../../components/Icon';
 import { navigate } from '../../../helpers/navigation';
-import { colors, size } from '../../../helpers/variables';
+import { colors, fontScale, size } from '../../../helpers/variables';
 
 import styles from './styles';
 
@@ -14,7 +14,7 @@ const Header = () => {
         <View style={{ paddingTop: insets.top }}>
             <View style={styles.header}>
                 <View style={styles.leftContainer}>
-                    <Text>Foody</Text>
+                    <Text style={{ fontSize: fontScale(24), fontWeight: "700" }}>Foody</Text>
                 </View>
                 <View style={styles.rightContainer}>
                     <View style={{ flexDirection: "row" }}>
