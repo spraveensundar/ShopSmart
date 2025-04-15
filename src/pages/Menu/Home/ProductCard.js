@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
     const dispatch = useDispatch();
     const cartItems = useSelector(state => state.cart.products);
     const cartItem = cartItems.find(item => item.id === product.id);
-    const { background, price, offer, mrp } = productDetails(product.name);
+    const { background, price = 345, offer, mrp = 567 } = productDetails(product.name);
     const category = product.main_category || 'Uncategorized';
     const quantity = cartItem ? cartItem.quantity : 0;
     const totalPrice = quantity > 0 ? quantity * price : price;

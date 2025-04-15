@@ -1,7 +1,7 @@
 import { cherryFive, cherryOne, cherryThree, cherryTwo, chickenFour, chickenOne, chickenTikka, chickenTwo, DriedCherriesFive, DriedCherriesFour, DriedCherriesOne, DriedCherriesThree, DriedCherriesTwo, Error, Herbals1, Herbals2, Herbals3, HimalayaFive, HimalayaFour, HimalayaOne, HimalayaThree, HimalayaTwo, Samai1, Samai2, Samai3, TanRemoval1, TanRemoval2, TanRemoval3, TanRemoval4, TanRemoval5, Thinai1, Thinai2, Thinai3, Wellness, Wipes1, Wipes2, Wipes3, Wipes4, Wipes5 } from "../assets/images";
 
 export const productDetails = (name) => {
-    if (name === "Chicken Tikka Small") {
+    if (name === "CB Half") {
         return {
             background: chickenTikka,
             imgOne: chickenOne,
@@ -13,7 +13,7 @@ export const productDetails = (name) => {
             offer: 67
         }
     }
-    if (name === "GE DRIED CRANBERRY 100G") {
+    if (name === "bb") {
         return {
             background: cherryOne,
             imgOne: cherryTwo,
@@ -25,7 +25,7 @@ export const productDetails = (name) => {
             offer: 34
         }
     }
-    if (name === "GREEN EARTH ORGANICS CHERRIES DRIED 100G") {
+    if (name === "Chicken Tikka Small - Premium") {
         return {
             background: DriedCherriesOne,
             imgOne: DriedCherriesTwo,
@@ -37,7 +37,7 @@ export const productDetails = (name) => {
             offer: 34
         }
     }
-    if (name === "HIMALAYA RICH COCOA BUTTER LIP CARE 4.5G") {
+    if (name === "GE DRIED CRANBERRY 100G") {
         return {
             background: HimalayaOne,
             imgOne: HimalayaTwo,

@@ -6,6 +6,7 @@ import Container from '../../../components/container';
 import { updateWishlist } from '../../../actions/quantity';
 
 import styles from './styles';
+import { productDetails } from '../../../helpers/list';
 
 const Wishlist = () => {
     const dispatch = useDispatch();

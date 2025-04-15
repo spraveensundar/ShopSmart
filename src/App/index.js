@@ -19,7 +19,7 @@ const App = () => {
 
 	return (
 		<NavigationContainer ref={navigationRef}>
-			<Stack.Navigator initialRouteName={"Login"} screenOptions={{ headerShown: false }}>
+			<Stack.Navigator initialRouteName={"DashBoard"} screenOptions={{ headerShown: false }}>
 				{useGuestRoutes()}
 			</Stack.Navigator>
 		</NavigationContainer>
